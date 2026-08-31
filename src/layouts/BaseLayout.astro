@@ -20,15 +20,30 @@ const { title = SITE.title, description, image, article } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={SITE.locale} style={`--accent:${SITE.accent}`}>
+<html lang={SITE.locale}>
   <head>
     <BaseHead title={title} description={description} image={image} article={article} />
   </head>
   <body>
+    <!-- Top Networkers Home Trust Ribbon -->
+    <div class="nh-top-ribbon" aria-label="Announcement">
+      <div class="nh-top-ribbon-inner">
+        <span>⚡ Real-time AI Voice</span>
+        <span class="nh-top-ribbon-sep">·</span>
+        <span>10+ Languages Live</span>
+        <span class="nh-top-ribbon-sep">·</span>
+        <span>AI Class Notes</span>
+        <span class="nh-top-ribbon-sep">·</span>
+        <span>Runs in Browser</span>
+        <span class="nh-top-ribbon-sep">·</span>
+        <a href={SITE.marketingUrl} target="_blank" rel="noopener">Zero credit card required →</a>
+      </div>
+    </div>
+
     <Header />
-    <main class="container">
-      <slot />
-    </main>
+    <slot />
     <Footer />
   </body>
 </html>
+
+

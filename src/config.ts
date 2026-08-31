@@ -1,22 +1,26 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  PER-PROJECT BRANDING  ·  the ONLY file that changes between blog repos.
-//  Owner-locked via CODEOWNERS — the SEO team does not edit this (see CONTRIBUTING.md).
+//  PER-PROJECT BRANDING  ·  OllaSync Blog
 // ─────────────────────────────────────────────────────────────────────────────
 export const SITE = {
-  brand: 'OllaSync',
-  title: 'OllaSync Blog',
-  description: 'Guides, tips, and product updates from the OllaSync team.',
+  brand: 'Ollasync',
+  title: 'Ollasync Blog · Teach anyone. In any language.',
+  description: 'Guides, product updates, and technical insights from the Ollasync team.',
   url: 'https://blogs.ollasync.com',
   marketingUrl: 'https://ollasync.com',
   marketingLabel: 'ollasync.com',
-  author: 'OllaSync Team',
-  accent: '#06b6d4',
-  tagline: 'Your files, everywhere.',
+  author: 'Ollasync Team',
+  accent: '#DA291C', // Signature Red
+  accentBlue: '#1F4FD8', // Signature Blue
+  logoBlueLight: '#4AA6FF',
+  logoBlueDark: '#2F79F0',
+  tagline: 'Teach anyone. In any language.',
   locale: 'en',
 } as const;
+
 
 export const NAV = [
   { label: 'Blog', href: '/' },
   { label: 'Tags', href: '/tags/' },
   { label: 'About', href: '/about/' },
 ];
+

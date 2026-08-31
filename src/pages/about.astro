@@ -3,15 +3,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../config';
 ---
 
-<BaseLayout title="About" description={`About the ${SITE.brand} blog.`}>
-  <article class="post">
-    <h1 class="post-title">About</h1>
-    <div class="prose">
-      <p>Welcome to the {SITE.brand} blog — {SITE.description}</p>
-      <p>
-        Looking for the product itself? Head to
-        <a href={SITE.marketingUrl}>{SITE.marketingLabel}</a>.
+<BaseLayout title="About · OllaSync Blog" description={`About the ${SITE.brand} blog.`}>
+  <div class="container-nh" style="padding-top: 3rem; padding-bottom: 4.5rem; max-width: 800px;">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span style="margin: 0 0.4rem;">›</span>
+      <span style="color: #000000; font-weight: 600;">About</span>
+    </nav>
+
+    <header class="article-header">
+      <div class="article-category">
+        COMPANY & VISION · OLLASYNC BLOG
+      </div>
+      <h1 class="article-title">
+        Built for Teachers, Tutors & <span class="nh-gradient-text">Engineers</span>
+      </h1>
+      <p style="font-size: 1.15rem; color: #4B5563; line-height: 1.6; margin: 0 0 1rem;">
+        {SITE.description}
       </p>
+    </header>
+
+    <div class="prose">
+      <p>
+        <strong>{SITE.brand}</strong> is an intelligent virtual classroom platform developed to eliminate language barriers and manual note-taking in live technical education. Part of the <strong>Networkers Home</strong> software ecosystem, OllaSync empowers educators to deliver real-time lectures with live multilingual voice translation in 10+ languages and automated, structured class notes.
+      </p>
+
+      <div class="tldr-box">
+        <p class="tldr-label">Core Mission</p>
+        <p class="tldr-text">
+          "Teach anyone. In any language. Your knowledge should have no borders."
+        </p>
+      </div>
+
+      <h2>What We Build</h2>
+      <ul>
+        <li><strong>Real-time AI Voice Translation:</strong> Speak naturally while learners listen in over 10 languages live.</li>
+        <li><strong>Automated AI Class Notes:</strong> Structured summaries, key takeaways, and transcripts generated seamlessly during sessions.</li>
+        <li><strong>Zero-Latency Screen & State Sync:</strong> Precision synchronization across classrooms, devices, and networks.</li>
+      </ul>
+
+      <h2>The Networkers Home Connection</h2>
+      <p>
+        OllaSync was created within the <strong>Networkers Home</strong> ecosystem to eliminate geographical and linguistic barriers in live technical education.
+      </p>
+
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="margin: 0 0 0.2rem; font-size: 1.1rem; color: #000000;">Ready to experience OllaSync?</h3>
+          <p style="margin: 0; font-size: 0.9rem; color: #6B7280;">Explore live classrooms, real-time voice translation, and AI notes.</p>
+        </div>
+        <a class="btn-contact" href={SITE.marketingUrl} target="_blank" rel="noopener">
+          Visit {SITE.brand} →
+        </a>
+      </div>
     </div>
-  </article>
+  </div>
 </BaseLayout>
+
+

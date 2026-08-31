@@ -1,47 +1,257 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import { SITE } from '../config';
 import { getPublishedPosts, readingTime } from '../utils/posts';
 
 const posts = await getPublishedPosts();
 const featured = posts[0];
 const rest = posts.slice(1);
+
+// Extract all unique tags
+const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
 ---
 
-<BaseLayout>
-  <section class="hero">
-    <h1 class="hero-title">{SITE.brand} <span>Blog</span></h1>
-    <p class="hero-tagline">{SITE.description}</p>
+<BaseLayout title={SITE.title} description={SITE.description}>
+  <div class="container-nh">
+    <div class="nh-layout-wrap">
+      
+      <!-- Left Sidebar: Featured Guides -->
+      <aside class="nh-sidebar">
+        <div class="nh-sticky-sidebar">
+          <span class="nh-sidebar-pill pill-amber">FEATURED GUIDES</span>
+          <nav class="nh-sidebar-nav">
+            <a href="/blog/getting-started/" class="nh-sidebar-link amber-hover">
+              Getting started with OllaSync
+            </a>
+            <a href="/blog/welcome-to-the-blog/" class="nh-sidebar-link amber-hover">
+              Welcome to the OllaSync Blog
+            </a>
+            <a href="/tags/guides/" class="nh-sidebar-link amber-hover">
+              Live Classroom Best Practices
+            </a>
+            <a href="/tags/announcements/" class="nh-sidebar-link amber-hover">
+              Real-Time AI Voice Translation
+            </a>
+          </nav>
+          <a href="/tags/guides/" class="nh-sidebar-viewall amber">
+            View All Guides →
+          </a>
+        </div>
+      </aside>
+
+      <!-- Center Column: Blog Main Stream -->
+      <main class="nh-main-stream">
+        
+        <!-- Mobile: Horizontal scroll cards for both specials (Exact NH layout) -->
+        <div class="nh-mobile-specials">
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span class="nh-sidebar-pill pill-amber" style="margin: 0;">FEATURED GUIDES</span>
+            </div>
+            <div class="nh-mobile-scroll">
+              <a href="/blog/getting-started/" class="nh-mobile-card amber">
+                Getting started with OllaSync
+              </a>
+              <a href="/blog/welcome-to-the-blog/" class="nh-mobile-card amber">
+                Welcome to the OllaSync Blog
+              </a>
+              <a href="/tags/guides/" class="nh-mobile-card amber">
+                Live Classroom Best Practices
+              </a>
+              <a href="/tags/announcements/" class="nh-mobile-card amber">
+                Real-Time AI Voice Translation
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span class="nh-sidebar-pill pill-purple" style="margin: 0;">AI SPECIALS</span>
+            </div>
+            <div class="nh-mobile-scroll">
+              <a href="/blog/getting-started/" class="nh-mobile-card purple">
+                AI Classroom for Trainers & Tutors
+              </a>
+              <a href="/blog/welcome-to-the-blog/" class="nh-mobile-card purple">
+                Real-time Voice Translation in 10 Languages
+              </a>
+              <a href="/tags/announcements/" class="nh-mobile-card purple">
+                Automated AI Class Summaries
+              </a>
+              <a href="/about/" class="nh-mobile-card purple">
+                Networkers Home & OllaSync Vision
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <header class="stream-header">
+          <h1 class="stream-title">
+            Teach anyone. In <span class="gradient-text">any language.</span>
+          </h1>
+          <p class="stream-subtitle">
+            Product updates, tutorials, and engineering insights from the Ollasync team.
+          </p>
+
+
+
+          <!-- Category Filter Bar -->
+          {
+            allTags.length > 0 && (
+              <div class="filter-bar" id="categoryFilters">
+                <button class="filter-btn active" data-filter="all">
+                  All Articles ({posts.length})
+                </button>
+                {allTags.map((tag) => (
+                  <button class="filter-btn" data-filter={tag}>
+                    #{tag}
+                  </button>
+                ))}
+              </div>
+            )
+          }
+        </header>
+
+        {posts.length === 0 && <p class="empty">No posts yet — check back soon.</p>}
+
+        <!-- Spotlight Featured Article -->
+        {
+          featured && (
+            <a class="spotlight-card" href={`/blog/${featured.slug}/`} data-tags={featured.data.tags.join(' ')}>
+              <span class="spotlight-label">★ Featured Post</span>
+              <h2 class="spotlight-title">{featured.data.title}</h2>
+              <p class="spotlight-desc">{featured.data.description}</p>
+              <div class="spotlight-meta">
+                <FormattedDate date={featured.data.pubDate} />
+                <span>·</span>
+                <span>{readingTime(featured.body)} min read</span>
+                {featured.data.author && <span>·</span>}
+                {featured.data.author && <span>By {featured.data.author}</span>}
+                <span class="spotlight-arrow">Read article →</span>
+              </div>
+            </a>
+          )
+        }
+
+        <!-- Articles Stream -->
+        {
+          rest.length > 0 && (
+            <div class="articles-stream" id="articlesStream">
+              {rest.map((p) => (
+                <PostCard
+                  url={`/blog/${p.slug}/`}
+                  title={p.data.title}
+                  description={p.data.description}
+                  pubDate={p.data.pubDate}
+                  tags={p.data.tags}
+                  minutes={readingTime(p.body)}
+                  author={p.data.author}
+                />
+              ))}
+            </div>
+          )
+        }
+      </main>
+
+      <!-- Right Sidebar: AI & Technical Specials -->
+      <aside class="nh-sidebar">
+        <div class="nh-sticky-sidebar">
+          <span class="nh-sidebar-pill pill-purple">AI SPECIALS</span>
+          <nav class="nh-sidebar-nav">
+            <a href="/blog/getting-started/" class="nh-sidebar-link purple-hover">
+              AI Classroom for Trainers & Tutors
+            </a>
+            <a href="/blog/welcome-to-the-blog/" class="nh-sidebar-link purple-hover">
+              Real-time Voice Translation in 10 Languages
+            </a>
+            <a href="/tags/announcements/" class="nh-sidebar-link purple-hover">
+              Automated AI Class Summaries
+            </a>
+            <a href="/about/" class="nh-sidebar-link purple-hover">
+              Networkers Home & OllaSync Vision
+            </a>
+          </nav>
+          <a href="/tags/announcements/" class="nh-sidebar-viewall purple">
+            View All AI Specials →
+          </a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Complete Blog Archive (Networkers Home Bottom Section) -->
+  <section class="nh-archive-section">
+    <div class="container-nh">
+      <h2 class="nh-archive-heading">Complete blog archive</h2>
+      <p class="nh-archive-sub">
+        Browse all published guides and announcements by topic.
+      </p>
+
+      <div class="nh-archive-grid">
+        {
+          allTags.map((tag) => {
+            const taggedPosts = posts.filter((p) => p.data.tags.includes(tag));
+            return (
+              <div class="nh-archive-cat">
+                <h4>
+                  #{tag} <span style="font-weight: 500; font-size: 0.85rem; color: #6B7280;">({taggedPosts.length})</span>
+                </h4>
+                <ul class="nh-archive-list">
+                  {taggedPosts.map((p) => (
+                    <li>
+                      <a href={`/blog/${p.slug}/`} class="nh-archive-link">
+                        {p.data.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
   </section>
 
-  {posts.length === 0 && <p class="empty">No posts yet — check back soon.</p>}
+  <!-- Client-side Category Filtering Script -->
+  <script>
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('#categoryFilters .filter-btn');
+    const streamCards = document.querySelectorAll<HTMLElement>('#articlesStream .stream-card');
+    const spotlightCard = document.querySelector<HTMLElement>('.spotlight-card');
 
-  {
-    featured && (
-      <a class="featured" href={`/blog/${featured.slug}/`}>
-        <span class="featured-label">Latest</span>
-        <h2 class="featured-title">{featured.data.title}</h2>
-        <p class="featured-desc">{featured.data.description}</p>
-        <span class="featured-more">Read article →</span>
-      </a>
-    )
-  }
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter') || 'all';
 
-  {
-    rest.length > 0 && (
-      <div class="post-list">
-        {rest.map((p) => (
-          <PostCard
-            url={`/blog/${p.slug}/`}
-            title={p.data.title}
-            description={p.data.description}
-            pubDate={p.data.pubDate}
-            tags={p.data.tags}
-            minutes={readingTime(p.body)}
-          />
-        ))}
-      </div>
-    )
-  }
+        // Update button states
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter stream cards
+        streamCards.forEach((card) => {
+          const cardTags = card.getAttribute('data-tags') || '';
+          if (filter === 'all' || cardTags.split(' ').includes(filter)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Filter spotlight card
+        if (spotlightCard) {
+          const spotlightTags = spotlightCard.getAttribute('data-tags') || '';
+          if (filter === 'all' || spotlightTags.split(' ').includes(filter)) {
+            spotlightCard.style.display = 'block';
+          } else {
+            spotlightCard.style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
 </BaseLayout>
+
+

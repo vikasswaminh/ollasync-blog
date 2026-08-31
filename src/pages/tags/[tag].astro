@@ -16,21 +16,90 @@ export async function getStaticPaths() {
 const { posts, tag } = Astro.props;
 ---
 
-<BaseLayout title={`#${tag}`} description={`Posts tagged ${tag}.`}>
-  <p class="post-eyebrow"><a href="/tags/">← All tags</a></p>
-  <h1 class="page-title">#{tag}</h1>
-  <div class="post-list">
-    {
-      posts.map((p) => (
-        <PostCard
-          url={`/blog/${p.slug}/`}
-          title={p.data.title}
-          description={p.data.description}
-          pubDate={p.data.pubDate}
-          tags={p.data.tags}
-          minutes={readingTime(p.body)}
-        />
-      ))
-    }
+<BaseLayout title={`#${tag} Articles · OllaSync Blog`} description={`Posts tagged with #${tag}.`}>
+  <div class="container-nh">
+    <div class="nh-layout-wrap">
+      
+      <!-- Left Sidebar -->
+      <aside class="nh-sidebar">
+        <div class="nh-sticky-sidebar">
+          <span class="nh-sidebar-pill pill-amber">FEATURED GUIDES</span>
+          <nav class="nh-sidebar-nav">
+            <a href="/blog/getting-started/" class="nh-sidebar-link amber-hover">
+              Getting started with OllaSync
+            </a>
+            <a href="/blog/welcome-to-the-blog/" class="nh-sidebar-link amber-hover">
+              Welcome to the OllaSync Blog
+            </a>
+            <a href="/tags/guides/" class="nh-sidebar-link amber-hover">
+              Live Classroom Best Practices
+            </a>
+            <a href="/tags/announcements/" class="nh-sidebar-link amber-hover">
+              Real-Time AI Voice Translation
+            </a>
+          </nav>
+          <a href="/tags/" class="nh-sidebar-viewall amber">
+            ← All Topics
+          </a>
+        </div>
+      </aside>
+
+      <!-- Center Column -->
+      <main class="nh-main-stream">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span style="margin: 0 0.4rem;">›</span>
+          <a href="/tags/">Tags</a>
+          <span style="margin: 0 0.4rem;">›</span>
+          <span style="color: #000000; font-weight: 600;">#{tag}</span>
+        </nav>
+
+        <header class="stream-header">
+          <h1 class="stream-title">
+            Articles tagged with <span class="nh-gradient-text">#{tag}</span>
+          </h1>
+          <p class="stream-subtitle">
+            Showing {posts.length} {posts.length === 1 ? 'article' : 'articles'} in this category.
+          </p>
+        </header>
+
+        <div class="articles-stream">
+          {
+            posts.map((p) => (
+              <PostCard
+                url={`/blog/${p.slug}/`}
+                title={p.data.title}
+                description={p.data.description}
+                pubDate={p.data.pubDate}
+                tags={p.data.tags}
+                minutes={readingTime(p.body)}
+                author={p.data.author}
+              />
+            ))
+          }
+        </div>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="nh-sidebar">
+        <div class="nh-sticky-sidebar">
+          <span class="nh-sidebar-pill pill-purple">AI SPECIALS</span>
+          <nav class="nh-sidebar-nav">
+            <a href="/blog/getting-started/" class="nh-sidebar-link purple-hover">
+              AI Classroom for Trainers
+            </a>
+            <a href="/blog/welcome-to-the-blog/" class="nh-sidebar-link purple-hover">
+              Live Voice Translation
+            </a>
+            <a href="/about/" class="nh-sidebar-link purple-hover">
+              About Networkers Home Ecosystem
+            </a>
+          </nav>
+        </div>
+      </aside>
+
+    </div>
   </div>
 </BaseLayout>
+
+

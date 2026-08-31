@@ -2,11 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Not found" description="Page not found.">
-  <section class="hero">
-    <h1 class="hero-title">404</h1>
-    <p class="hero-tagline">
-      That page wandered off. <a href="/">Back to the blog →</a>
+<BaseLayout title="Page Not Found · OllaSync Blog">
+  <div class="container-nh" style="text-align: center; padding: 5rem 1rem 7rem; max-width: 600px;">
+    <span class="nh-sidebar-pill pill-amber" style="margin-bottom: 1rem;">404 ERROR</span>
+    <h1 style="font-size: 3rem; font-weight: 900; margin: 0 0 0.75rem; color: #000000;">
+      Page Not <span class="nh-gradient-text">Found</span>
+    </h1>
+    <p style="color: #4B5563; font-size: 1.05rem; line-height: 1.6; margin: 0 0 2rem;">
+      The page or article you are looking for might have been moved, renamed, or is temporarily unavailable.
     </p>
-  </section>
+    <a class="btn-contact" href="/" style="display: inline-flex;">
+      ← Return to Blog Home
+    </a>
+  </div>
 </BaseLayout>

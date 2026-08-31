@@ -8,16 +8,33 @@ for (const p of posts) for (const t of p.data.tags) counts.set(t, (counts.get(t)
 const tags = [...counts.entries()].sort((a, b) => b[1] - a[1]);
 ---
 
-<BaseLayout title="Tags" description="Browse posts by topic.">
-  <h1 class="page-title">Tags</h1>
-  {tags.length === 0 && <p class="empty">No tags yet.</p>}
-  <div class="tag-cloud">
-    {
-      tags.map(([t, n]) => (
-        <a class="tag tag-lg" href={`/tags/${t}/`}>
-          #{t} <span class="tag-count">{n}</span>
-        </a>
-      ))
-    }
+<BaseLayout title="Tags · OllaSync Blog" description="Browse blog posts by topic.">
+  <div class="container-nh" style="padding-top: 3rem; padding-bottom: 4.5rem; max-width: 900px;">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span style="margin: 0 0.4rem;">›</span>
+      <span style="color: #000000; font-weight: 600;">Tags & Categories</span>
+    </nav>
+
+    <h1 class="stream-title" style="margin-bottom: 0.5rem;">
+      Browse by <span class="nh-gradient-text">Topic</span>
+    </h1>
+    <p class="stream-subtitle">
+      Explore all categories, tutorials, and product updates from the OllaSync team.
+    </p>
+
+    {tags.length === 0 && <p class="empty">No tags yet.</p>}
+    
+    <div class="tag-cloud" style="margin-top: 2rem;">
+      {
+        tags.map(([t, n]) => (
+          <a class="tag tag-lg" href={`/tags/${t}/`}>
+            #{t} <span class="tag-count">({n})</span>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </BaseLayout>
+
+

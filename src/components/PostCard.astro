@@ -8,27 +8,35 @@ interface Props {
   pubDate: Date;
   tags?: string[];
   minutes?: number;
+  author?: string;
 }
-const { url, title, description, pubDate, tags = [], minutes } = Astro.props;
+const { url, title, description, pubDate, tags = [], minutes, author = 'OllaSync Team' } = Astro.props;
+const tagString = tags.join(' ');
 ---
 
-<article class="post-card">
-  <h2 class="post-card-title"><a href={url}>{title}</a></h2>
-  <p class="post-card-meta">
+<article class="stream-card" data-tags={tagString}>
+  <h2 class="stream-card-title">
+    <a href={url}>{title}</a>
+  </h2>
+  <div class="stream-card-meta">
     <FormattedDate date={pubDate} />
-    {minutes ? <span aria-hidden="true">·</span> : null}
+    {minutes ? <span>·</span> : null}
     {minutes ? <span>{minutes} min read</span> : null}
-  </p>
-  <p class="post-card-desc">{description}</p>
+    <span>·</span>
+    <span>By {author}</span>
+  </div>
+  <p class="stream-card-desc">{description}</p>
   {
     tags.length > 0 && (
-      <p class="post-card-tags">
+      <div class="stream-card-tags">
         {tags.map((t) => (
           <a class="tag" href={`/tags/${t}/`}>
             #{t}
           </a>
         ))}
-      </p>
+      </div>
     )
   }
 </article>
+
+
