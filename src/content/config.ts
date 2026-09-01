@@ -12,7 +12,7 @@ const blog = defineCollection({
     author: z.string().optional(),
     authorRole: z.string().optional(),
     category: z.string().optional(),
-    readTime: z.number().optional(),
+    readTime: z.union([z.number(), z.string()]).optional(),
     tags: z.array(z.string()).default([]),
     cover: z.string().optional(),
     pillar: z.boolean().default(false),
