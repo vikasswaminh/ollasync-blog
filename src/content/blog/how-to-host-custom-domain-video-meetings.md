@@ -34,8 +34,6 @@ takeaways:
   - "Self-hosting or moving to single tenant deployment is the only way to guarantee the domain in the address bar and the domain that owns the underlying data are the same one."
 ---
 
-## TLDR
-
 Sending a client a meeting link that reads `zoom.us` or `meet.google.com` is a tiny, constant reminder that the meeting is happening on somebody else's platform, not yours. A genuinely branded meeting URL, one that reads `meet.yourcompany.com` and resolves to infrastructure carrying your name end to end, is not a font change or a logo upload. It is a DNS decision, a certificate decision, and in most cases a hosting decision.
 
 This guide walks through what a custom domain for video meetings actually involves, why the common "URL redirect" trick is a cosmetic shortcut rather than real branding, and how self-hosted or single tenant deployment is the only route that gives you a domain, a certificate, and infrastructure that are all genuinely yours. We will also cover the practical DNS and TLS steps, where this matters most (healthcare, legal, finance, training, government), the mistakes teams make when they attempt it, and a checklist for evaluating any vendor that claims to support it.

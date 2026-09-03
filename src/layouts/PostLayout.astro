@@ -50,38 +50,26 @@ const jsonLd = {
   <div class="container-nh">
     <div class="nh-layout-wrap">
       
-      <!-- Left Sidebar: ON THIS PAGE Table of Contents -->
+      <!-- Left Sidebar: Featured Guides -->
       <aside class="nh-sidebar">
         <div class="nh-sticky-sidebar">
-          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;">
-            <span class="nh-sidebar-pill pill-blue">ON THIS PAGE</span>
-          </div>
-
-          {
-            tocHeadings.length > 0 ? (
-              <nav class="nh-toc-nav" id="tocNav" aria-label="Table of Contents">
-                {tocHeadings.map((h) => (
-                  <a
-                    href={`#${h.slug}`}
-                    class:list={[
-                      'nh-toc-link',
-                      h.depth === 3 ? 'nh-toc-sub' : 'nh-toc-main',
-                    ]}
-                    data-slug={h.slug}
-                  >
-                    {h.text}
-                  </a>
-                ))}
-              </nav>
-            ) : (
-              <nav class="nh-toc-nav">
-                <a href="#top" class="nh-toc-link active nh-toc-main">Overview</a>
-              </nav>
-            )
-          }
-
-          <a href="#top" class="nh-toc-backtop" id="tocBackTop">
-            ↑ Back to top
+          <span class="nh-sidebar-pill pill-amber">FEATURED GUIDES</span>
+          <nav class="nh-sidebar-nav">
+            <a href="/blog/how-to-deploy-an-on-premises-video-conferencing-server/" class="nh-sidebar-link amber-hover">
+              Deploy On-Premises Server in 30 Min
+            </a>
+            <a href="/blog/how-to-host-custom-domain-video-meetings/" class="nh-sidebar-link amber-hover">
+              Custom Domain Video Meetings
+            </a>
+            <a href="/blog/how-to-run-air-gapped-video-conferencing/" class="nh-sidebar-link amber-hover">
+              Air-Gapped Video Conferencing
+            </a>
+            <a href="/blog/getting-started/" class="nh-sidebar-link amber-hover">
+              Getting started with OllaSync
+            </a>
+          </nav>
+          <a href="/tags/guides/" class="nh-sidebar-viewall amber">
+            View All Guides →
           </a>
         </div>
       </aside>
@@ -208,46 +196,6 @@ const jsonLd = {
   </div>
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-
-  <script>
-    // Active Table of Contents highlighting on scroll
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            if (id) {
-              const activeLinks = document.querySelectorAll<HTMLAnchorElement>('#tocNav .nh-toc-link');
-              activeLinks.forEach((link) => {
-                if (link.getAttribute('data-slug') === id) {
-                  link.classList.add('active');
-                  // Auto-scroll TOC list if needed
-                  link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-                } else {
-                  link.classList.remove('active');
-                }
-              });
-            }
-          }
-        });
-      },
-      { rootMargin: '-80px 0px -70% 0px', threshold: 0 }
-    );
-
-    // Observe all h2 and h3 in prose
-    document.querySelectorAll('.prose h2, .prose h3').forEach((heading) => {
-      observer.observe(heading);
-    });
-
-    // Back to top smooth scroll
-    const backToTop = document.getElementById('tocBackTop');
-    if (backToTop) {
-      backToTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  </script>
 </BaseLayout>
 
 

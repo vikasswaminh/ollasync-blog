@@ -677,9 +677,22 @@ h3 {
    Article Detail Page (Networkers Home Style)
    ========================================================================== */
 .nh-article-container {
-  max-width: 800px;
+  flex: 1;
+  min-width: 0;
+  max-width: 860px;
   margin: 0 auto;
   background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  padding: 2.25rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .nh-article-container {
+    padding: 1.5rem 1.25rem;
+    border-radius: 0.75rem;
+  }
 }
 
 .breadcrumb {

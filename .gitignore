@@ -22,3 +22,5 @@ yarn.lock
 .DS_Store
 .vscode/
 *.log
+*.txt
+src/content/blog/*.txt
