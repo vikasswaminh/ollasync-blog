@@ -278,6 +278,15 @@ h3 {
 .nh-sticky-sidebar {
   position: sticky;
   top: 80px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2rem;
+}
+
+.nh-sticky-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .nh-sidebar-pill {
@@ -389,6 +398,12 @@ h3 {
   text-decoration: none;
 }
 
+.nh-sidebar-link.blue-hover:hover {
+  color: var(--nh-blue);
+  background-color: #EFF6FF;
+  text-decoration: none;
+}
+
 .nh-sidebar-viewall {
   display: inline-flex;
   align-items: center;
@@ -399,7 +414,63 @@ h3 {
 }
 .nh-sidebar-viewall.amber { color: #B45309; }
 .nh-sidebar-viewall.purple { color: #6D28D9; }
+.nh-sidebar-viewall.blue { color: var(--nh-blue); }
 .nh-sidebar-viewall:hover { text-decoration: underline; }
+
+/* Sidebar CTA Card (Adapted from 24observe) */
+.nh-sidebar-cta {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1rem;
+  background: linear-gradient(135deg, rgba(31, 79, 216, 0.04) 0%, rgba(31, 79, 216, 0.09) 100%);
+  border: 1px solid rgba(31, 79, 216, 0.2);
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 2px 6px -1px rgba(31, 79, 216, 0.06);
+}
+
+.nh-sidebar-cta-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--nh-blue);
+  background: rgba(31, 79, 216, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-bottom: 0.65rem;
+}
+
+.nh-sidebar-cta-text {
+  font-size: 0.82rem;
+  color: #4B5563;
+  line-height: 1.45;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.nh-sidebar-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--nh-blue);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  transition: all 0.15s ease;
+  text-decoration: none !important;
+  box-shadow: 0 2px 4px rgba(31, 79, 216, 0.25);
+}
+
+.nh-sidebar-cta-btn:hover {
+  background: var(--nh-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(31, 79, 216, 0.35);
+}
 
 /* Mobile Horizontal Snap Carousels (Exact NH lg:hidden) */
 .nh-mobile-specials {

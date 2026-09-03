@@ -22,22 +22,53 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
         <div class="nh-sticky-sidebar">
           <span class="nh-sidebar-pill pill-amber">FEATURED GUIDES</span>
           <nav class="nh-sidebar-nav">
+            <a href="/blog/how-to-deploy-an-on-premises-video-conferencing-server/" class="nh-sidebar-link amber-hover">
+              Deploy On-Premises Server in 30 Min
+            </a>
+            <a href="/blog/how-to-host-custom-domain-video-meetings/" class="nh-sidebar-link amber-hover">
+              Custom Domain Video Meetings
+            </a>
+            <a href="/blog/how-to-run-air-gapped-video-conferencing/" class="nh-sidebar-link amber-hover">
+              Air-Gapped Video Conferencing
+            </a>
             <a href="/blog/getting-started/" class="nh-sidebar-link amber-hover">
               Getting started with OllaSync
-            </a>
-            <a href="/blog/welcome-to-the-blog/" class="nh-sidebar-link amber-hover">
-              Welcome to the OllaSync Blog
-            </a>
-            <a href="/tags/guides/" class="nh-sidebar-link amber-hover">
-              Live Classroom Best Practices
-            </a>
-            <a href="/tags/announcements/" class="nh-sidebar-link amber-hover">
-              Real-Time AI Voice Translation
             </a>
           </nav>
           <a href="/tags/guides/" class="nh-sidebar-viewall amber">
             View All Guides →
           </a>
+
+          <!-- Platform & Solutions Links from Ollasync -->
+          <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid #E5E7EB;">
+            <span class="nh-sidebar-pill pill-blue">PLATFORM & SOLUTIONS</span>
+            <nav class="nh-sidebar-nav">
+              <a href="https://ollasync.com/#for-trainers" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                For Trainers & Coaches
+              </a>
+              <a href="https://ollasync.com/features/video-meetings" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                Live Video Classrooms
+              </a>
+              <a href="https://ollasync.com/features/ai" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                AI Voice Translation
+              </a>
+              <a href="https://ollasync.com/features/deal-rooms" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                Sovereign Deal Rooms
+              </a>
+              <a href="https://ollasync.com/features/recordings" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                Recording & Archival
+              </a>
+              <a href="https://ollasync.com/vs" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                Compare vs Zoom & Teams
+              </a>
+              <a href="https://ollasync.com/pricing" target="_blank" rel="noopener" class="nh-sidebar-link blue-hover">
+                Transparent Pricing
+              </a>
+            </nav>
+            <a href="https://ollasync.com" target="_blank" rel="noopener" class="nh-sidebar-viewall blue">
+              Explore Ollasync.com →
+            </a>
+          </div>
         </div>
       </aside>
 
@@ -176,6 +207,17 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
           <a href="/tags/announcements/" class="nh-sidebar-viewall purple">
             View All AI Specials →
           </a>
+
+          <!-- Start Free Special CTA Card (24observe adapted) -->
+          <div class="nh-sidebar-cta">
+            <span class="nh-sidebar-cta-badge">SOVEREIGN AI CLASSROOM</span>
+            <p class="nh-sidebar-cta-text">
+              Run live classes with real-time voice translation in 10+ languages, automated notes & sovereign video meetings.
+            </p>
+            <a href="https://login.ollasync.com" target="_blank" rel="noopener" class="nh-sidebar-cta-btn">
+              Start Free Trial →
+            </a>
+          </div>
         </div>
       </aside>
 
