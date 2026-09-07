@@ -50,16 +50,40 @@ Add a link like [this](https://example.com), or an image: `![alt text](/my-image
 | ------------- | -------- | ------------------------------------------------------------ |
 | `title`       | yes      | The headline.                                                |
 | `description` | yes      | ~150 chars. Shows in Google + social previews.               |
+| `tldr`        | no       | Verbatim TL;DR paragraph from the draft. Shows in TL;DR box. |
 | `pubDate`     | yes      | `YYYY-MM-DD`. Controls ordering (newest first).              |
 | `author`      | no       | Defaults to the site author.                                 |
 | `tags`        | no       | A list, e.g. `['guides', 'privacy']`. Creates tag pages.     |
 | `cover`       | no       | Path to a header image in `public/`, e.g. `/covers/foo.png`. |
+| `takeaways`   | no       | Array of 4-5 bullet summary strings.                         |
 | `draft`       | no       | `true` hides the post from the live site while you write.    |
+
+## Blog Posting Checklist (Rules to Follow Every Time)
+
+1. **Verbatim Content Preservation:**
+   - Keep the main content from the author's draft `.txt` file **completely untouched**. Do not summarize, shorten, or rewrite any paragraphs or sections.
+2. **Exact TL;DR from Text File:**
+   - Always copy the exact `TLDR` paragraph from the `.txt` draft into the frontmatter `tldr:` field. It will display in the site's signature TL;DR card. Never invent or rewrite a TLDR.
+3. **Checklists as Clean Bullets (No Checkboxes):**
+   - Format checklist items as standard bullet points (`- **Item:** ...`). Never use interactive Markdown checkboxes (`- [ ]`) because they render HTML tick boxes on the page.
+4. **Clean Categorical Tags & SEO Keywords:**
+   - Short categories in `tags:` (e.g. `['security', 'self-hosted', 'guides', 'compliance']`).
+   - Long-tail search phrases belong in `keywords:`.
+5. **No Duplicate H1/H2 Title or TL;DR in Markdown Body:**
+   - Do not repeat `# Title` or `## TLDR` in the Markdown body — `PostLayout.astro` handles them automatically.
+6. **FAQ Accordions:**
+   - Format FAQs using `<details class="faq-item"><summary>Question text?</summary>\n\nAnswer text.\n</details>`.
+7. **Git Hygiene (No `.txt` files):**
+   - Only commit the formatted `.md` file in `src/content/blog/`. Never track or commit draft `.txt` files.
+8. **Build Verification:**
+   - Run `npm run build` to confirm 0 errors before committing.
+9. **Always Ask Before Pushing:**
+   - Never push directly to Git without asking for and receiving explicit user confirmation.
 
 ## Tips
 
 - Keep the filename lowercase-with-dashes — it's the permanent URL, so don't rename it later.
-- Quote the `title` and `description` values, especially if they contain a `:` or an apostrophe.
+- Quote the `title`, `description`, and `tldr` values, especially if they contain a `:` or an apostrophe.
 - Set `draft: true` while you're still writing; remove it (or set `false`) to publish.
 - After you commit, watch the **Actions** tab — a green check means it deployed. A red X means a typo broke
   the build (usually the frontmatter); fix it and commit again. The live site keeps the last good version

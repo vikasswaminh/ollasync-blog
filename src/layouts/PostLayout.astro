@@ -16,7 +16,7 @@ interface Props {
   headings?: Heading[];
 }
 const { post, headings = [] } = Astro.props;
-const { title, description, pubDate, updatedDate, author = 'The Ollasync team', tags = [], cover } = post.data;
+const { title, description, tldr, pubDate, updatedDate, author = 'The Ollasync team', tags = [], cover } = post.data;
 const minutes = readingTime(post.body);
 const canonical = new URL(`/blog/${post.slug}/`, Astro.site).href;
 const primaryTag = tags[0] || 'Guides';
@@ -172,7 +172,7 @@ const jsonLd = {
           <!-- TL;DR Callout Box (Networkers Home Signature) -->
           <section class="tldr-box">
             <p class="tldr-label">TL;DR</p>
-            <p class="tldr-text">{description}</p>
+            <p class="tldr-text">{tldr || description}</p>
           </section>
 
           {cover && <img class="post-cover" src={cover} alt="" loading="lazy" />}

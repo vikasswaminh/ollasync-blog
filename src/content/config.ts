@@ -18,6 +18,7 @@ const blog = defineCollection({
     pillar: z.boolean().default(false),
     pillarSlug: z.string().optional(),
     keywords: z.array(z.string()).default([]),
+    tldr: z.string().optional(),
     takeaways: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
