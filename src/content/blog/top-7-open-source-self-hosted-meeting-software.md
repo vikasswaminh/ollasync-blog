@@ -2,7 +2,7 @@
 title: "Top 7 Open Source & Self Hosted Meeting Software Solutions for 2026"
 description: "A hands-on 2026 evaluation of the seven best open source and self-hosted meeting platforms, including Jitsi Meet, BigBlueButton, Nextcloud Talk, Matrix, LiveKit, OpenMeetings and Jami, with honest pros, cons and who each one actually suits."
 tldr: "If you want a browser based, no install meeting tool for small teams, Jitsi Meet is still the fastest way to get something running today. If your priority is virtual classrooms with breakout rooms and a whiteboard, BigBlueButton wins on education specific features. If you already run Nextcloud, Talk gives you meetings inside the same workspace as your files. If you want to encrypted, decentralized messaging with calling bolted on, Matrix and Element Call are the serious choice. If your team is technical and wants to build a custom product on top of WebRTC infrastructure, LiveKit is the toolkit, not the app. OpenMeetings still has a place for training heavy organizations that want an older but stable LMS style tool. And if absolute privacy with no central server at all is the goal, Jami is the closest thing open source has to true peer to peer conferencing. None of these seven are interchangeable. Each one optimizes for a different tradeoff between ease of use, scale, security and control, and picking the wrong one for your situation is the most common self-hosting mistake we see teams make."
-pubDate: 2026-09-09
+pubDate: 2026-09-10
 category: "Self-Hosting"
 tags:
   - "self-hosted"
