@@ -1,7 +1,7 @@
 ---
 title: "How to Run Air-Gapped Video Conferencing for Maximum Internal Security"
 description: "How defense contractors, intelligence agencies, and high-security enterprises run real-time video, audio, and screen-share entirely offline with zero vendor trust."
-pubDate: 2026-08-31
+pubDate: 2026-09-01
 category: "Security"
 tags:
   - "security"

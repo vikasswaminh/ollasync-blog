@@ -1,7 +1,7 @@
 ---
 title: 'Getting started with OllaSync'
 description: 'A quick tour of OllaSync and how to get up and running in minutes.'
-pubDate: 2026-08-26
+pubDate: 2026-08-27
 author: 'OllaSync Team'
 tags: ['guides']
 ---

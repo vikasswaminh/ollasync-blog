@@ -2,7 +2,7 @@
 title: "How to Prevent Video Call Eavesdropping and Unintended Data Leaks in Remote Teams"
 description: "Video calls feel private because you can see everyone in the room. They aren't. Here's every way remote teams leak audio, video, chat and documents through their meeting tools, and the concrete steps that close those gaps."
 tldr: "Remote teams treat video calls like closed doors, but a meeting link is closer to a mailing list than a locked room. Calls get eavesdropped through leaked links, weak authentication, unmanaged participant devices, public Wi-Fi interception, silent notetaking bots, careless screen sharing, and vendor sub processor chains that quietly extend who can technically see your meeting content. None of this requires a sophisticated attacker; most incidents come from defaults nobody bothered to change. This guide walks through exactly how eavesdropping and data leaks happen on a modern video call, why remote and distributed teams are disproportionately exposed, and a practical, layered framework for closing each gap: before the meeting, during it, after it, and at the level of which platform you choose in the first place. It ends with what genuine architectural protection looks like, including where end to end encryption and self-hosting change the risk instead of just managing it."
-pubDate: 2026-09-07
+pubDate: 2026-09-08
 category: "Security"
 tags:
   - "security"

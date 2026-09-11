@@ -1,7 +1,7 @@
 ---
 title: "How to Deploy an On-Premises Video Conferencing Server in Under 30 Minutes"
 description: "A real, honest walkthrough of standing up an on-premises video conferencing server in under thirty minutes: the components, the prerequisites, the exact deployment sequence, and what usually blows the timeline."
-pubDate: 2026-09-03
+pubDate: 2026-09-04
 category: "Guides"
 tags:
   - "self-hosted"

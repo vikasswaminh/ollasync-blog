@@ -147,10 +147,7 @@ const jsonLd = {
               {primaryTag.toUpperCase()} · OLLASYNC BLOG · {minutes} MIN READ
             </div>
             <h1 class="article-title">{title}</h1>
-            <p style="font-size: 1.1rem; color: #4B5563; line-height: 1.6; margin: 0 0 1.25rem;">
-              {description}
-            </p>
-            <div class="article-meta-strip">
+            <div class="article-meta-strip" style="margin-bottom: 1rem;">
               <span>By <strong style="color: #000000;">{author}</strong></span>
               <span>·</span>
               <span>Published <FormattedDate date={pubDate} /></span>
@@ -167,6 +164,9 @@ const jsonLd = {
                 )
               }
             </div>
+            <p style="font-size: 1.1rem; color: #4B5563; line-height: 1.6; margin: 0 0 1.25rem;">
+              {description}
+            </p>
           </header>
 
           <!-- TL;DR Callout Box (Networkers Home Signature) -->

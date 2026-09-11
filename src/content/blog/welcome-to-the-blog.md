@@ -1,7 +1,7 @@
 ---
 title: 'Welcome to the OllaSync blog'
 description: 'Product news, how-tos, and practical tips from the OllaSync team.'
-pubDate: 2026-08-27
+pubDate: 2026-08-28
 author: 'OllaSync Team'
 tags: ['announcements']
 ---

@@ -2,7 +2,7 @@
 title: "Video Conferencing Compliance for Finance and Legal Teams: Risks, Requirements, and Solutions"
 description: "What SEC, FINRA, MiFID II, GDPR and privilege actually require of video calls for banks, funds, law firms and in house counsel, and the concrete controls that make video conferencing defensible instead of a liability."
 tldr: "Finance and legal teams are running some of the most sensitive conversations in the economy, deal terms, board discussions, privileged legal advice, client financials, through video tools that were built for convenience, not for regulators or opposing counsel. This guide walks through what actually goes wrong on an ordinary call, what SEC, FINRA, MiFID II, GDPR and professional ethics rules genuinely require, why finance and legal have almost opposite recordkeeping problems, and the specific controls, encryption, access control, audit logging, residency and self-hosting, that turn a video platform from a liability into something your risk committee can sign off on."
-pubDate: 2026-09-08
+pubDate: 2026-09-09
 category: "Compliance"
 tags:
   - "compliance"

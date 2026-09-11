@@ -150,19 +150,30 @@ const allTags = Array.from(new Set(posts.flatMap((p) => p.data.tags || [])));
         <!-- Spotlight Featured Article -->
         {
           featured && (
-            <a class="spotlight-card" href={`/blog/${featured.slug}/`} data-tags={featured.data.tags.join(' ')}>
-              <span class="spotlight-label">★ Featured Post</span>
-              <h2 class="spotlight-title">{featured.data.title}</h2>
-              <p class="spotlight-desc">{featured.data.description}</p>
-              <div class="spotlight-meta">
+            <article class="stream-card spotlight-card" data-tags={featured.data.tags.join(' ')}>
+              <h2 class="stream-card-title">
+                <a href={`/blog/${featured.slug}/`}>{featured.data.title}</a>
+              </h2>
+              <div class="stream-card-meta">
                 <FormattedDate date={featured.data.pubDate} />
                 <span>·</span>
                 <span>{readingTime(featured.body)} min read</span>
-                {featured.data.author && <span>·</span>}
-                {featured.data.author && <span>By {featured.data.author}</span>}
-                <span class="spotlight-arrow">Read article →</span>
+                <span>·</span>
+                <span>By {featured.data.author || 'The Ollasync team'}</span>
               </div>
-            </a>
+              <p class="stream-card-desc">{featured.data.description}</p>
+              {
+                featured.data.tags && featured.data.tags.length > 0 && (
+                  <div class="stream-card-tags">
+                    {featured.data.tags.map((t) => (
+                      <a class="tag" href={`/tags/${t}/`}>
+                        #{t}
+                      </a>
+                    ))}
+                  </div>
+                )
+              }
+            </article>
           )
         }
 

@@ -1,7 +1,7 @@
 ---
 title: "How to Host Custom Domain Video Meetings Under Your Own Brand URL"
 description: "A practical guide to hosting video meetings on your own branded domain instead of a generic vendor link — what custom domain hosting actually requires, why the redirect trick isn't the real thing, and how self-hosted or single tenant deployment gets you there properly."
-pubDate: 2026-09-01
+pubDate: 2026-09-02
 category: "Guides"
 tags:
   - "guides"
